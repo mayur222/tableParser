@@ -36,7 +36,7 @@ def getMainTable(Mat,img1):
 		return None
 	row=list()
 	table=list()
-	xml = "<table><tr>"
+	xml = "<table>\n<tr>"
 	for p in nz:
 		v=vertical_near(p[0],nz)
 		h=horizontal_near(p[0],nz)
@@ -45,23 +45,17 @@ def getMainTable(Mat,img1):
 				continue
 			x1,y1=p[0]
 			x2,y2=h[0],v[1]
-			cv2.imwrite('c.png',img1[y1:y2,x1:x2])
 			xmln = getMainTable(Mat[y1-1:y2,x1-1:x2],img1[y1-1:y2+1,x1-1:x2+1])
-			#print x1,y1,x2,y2
-			cv2.imshow('c',img1[y1-1:y2,x1-1:x2])
-			#cv2.waitKey(0)
-			cv2.destroyAllWindows()
 			n=False
 			if isinstance(xmln,str):
 				xml+="<td>"+xmln+"</td>"
 				Mat[y1:y2,x1:x2]=0
 				n=True
-			#cv2.imshow(str(p[0]),crp)
 		if not isinstance(h,list):
 			if len(row)>0:
 				table.append(row)
 				row=list()
-				xml+="</tr><tr>"
+				xml+="</tr>\n<tr>"
 		elif isinstance(v,list):
 			row.append(list(p[0]))
 			if not n:
@@ -69,7 +63,7 @@ def getMainTable(Mat,img1):
 			else:
 				n=False
 
-	xml+="\b\b\b\b</table>"
+	xml+="\b\b\b\b</table>\n"
 	return str(xml)
 
 	
@@ -94,5 +88,7 @@ vert=cv2.dilate(vert,vstruct)
 tableOut=hori+vert
 joints=cv2.bitwise_and(hori,vert)	
 ss= getMainTable(joints,img)
-print ss
+outF=open(sys.argv[1].split(".")[0]+".xml","w")
+outF.write(ss)
+outF.close()
 

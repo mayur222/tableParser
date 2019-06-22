@@ -88,7 +88,7 @@ vert=cv2.dilate(vert,vstruct)
 tableOut=hori+vert
 joints=cv2.bitwise_and(hori,vert)	
 ss= getMainTable(joints,img)
-outF=open(sys.argv[1].split(".")[0]+".xml","w")
+outF=open(sys.argv[1].split(".")[:-1][0]+".xml","w")
 outF.write(ss)
 outF.close()
 

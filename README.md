@@ -12,7 +12,6 @@
 
 Run below commmand
 ```
-
 python withBord.py Input_Horizontal_Table.JPG
 ```
 this will generate file Input_Horizontal_Table.xml in same file from where image file is taken

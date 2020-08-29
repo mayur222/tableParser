@@ -1,10 +1,15 @@
-# tableParser
+# Table parser
 
 ## Prerequisite
-opencv-python
-pytesseract
+1. opencv-python
+2. pytesseract
 
 ## How to use it 
+
+### Input Image
+
+![Original Image](https://github.com/mayur222/tableParser/blob/master/Input_Horizontal_Table.jpg?raw=true)
+
 Run below commmand
 ```
 

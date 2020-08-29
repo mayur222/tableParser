@@ -8,7 +8,7 @@
 
 ### Input Image
 
-![Original Image](https://github.com/mayur222/tableParser/blob/master/Input_Horizontal_Table.jpg?raw=true)
+![Input Image](https://github.com/mayur222/tableParser/blob/master/Input_Horizontal_Table.JPG?raw=true)
 
 Run below commmand
 ```
